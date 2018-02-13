@@ -1,0 +1,21 @@
+/* PHASE 2: Notifications */
+ul li a span{
+
+	background: black;
+	border-radius: 100%;
+  padding: 5px 10px;
+}
+  .badge{
+    position:relative;
+  }
+  
+  .badge:hover .badge li {
+    display:block;
+    color:yellow;
+    
+  }
+  .badge ul{
+    display: none;
+    
+  }
+  

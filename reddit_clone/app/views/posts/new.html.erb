@@ -1,0 +1,38 @@
+<h1>Posts#new</h1>
+<p>Find me in app/views/posts/new.html.erb</p>
+
+<form class="" action="<%= posts_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <label>
+    Title
+    <input type="text" name="post[title]" value="<%=@post.title%>">
+  </label>
+  
+  <label>
+    URL
+    <input type="textarea" name="post[url]" value="<%=@post.url%>">
+  </label>
+  
+  <label>
+    Content
+    <input type="textarea" name="post[content]" value="<%=@post.content%>">
+  </label>
+  
+  <label>Subs</label>
+
+  <input type="hidden" name="post[sub_ids][]" value="">
+
+  <% Sub.all.each do |sub| %>
+    <label><%= sub.title %>
+      <input
+        type="checkbox"
+        name="post[sub_ids][]"
+        value="<%= sub.id %>"
+        <%= "checked" if @post.sub_ids.include?(sub.id) %>
+      />
+    </label>
+  <% end %>
+  
+  <input type="submit" name="" value="add new post">
+</form>

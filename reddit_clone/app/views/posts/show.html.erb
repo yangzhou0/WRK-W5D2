@@ -1,0 +1,26 @@
+<h1><%= @post.title %></h1>
+
+
+<p> Subs this post belongs to: </p>
+<ul>
+  <% @post.subs.each do |sub| %>
+    <li>
+      <a href="<%=sub_url(sub)%>"> <%= sub.title %></a>
+    </li>
+  <% end %>
+</ul>
+
+<label>
+  Comments
+  <ol>
+    <% @post.comments.each do |comment| %>
+    
+    <li>
+      <%= comment.content %>
+    </li>
+    <% end %>
+  </ol>
+</label>
+
+<%= link_to 'New Comment', new_post_comment_url(@post) %>
+
